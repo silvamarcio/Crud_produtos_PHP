@@ -7,10 +7,5 @@ $connection = mysqli_connect(
      'crud_produtos'
 );
 
-if (isset($connection)) {
-    echo 'banco de dados conectado' ;
-}
-else{
-    echo 'nao conectado';
-}
+
 ?>
