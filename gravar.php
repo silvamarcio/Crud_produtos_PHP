@@ -16,6 +16,9 @@
             die("insert falhou");
         }
 
+        $_SESSION['message'] = 'Registro Guardado com Sucesso';
+        $_SESSION['message_type'] = 'success';
+
         header("Location: index.php");
     }
 
