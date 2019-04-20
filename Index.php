@@ -61,7 +61,7 @@
                      while($row = mysqli_fetch_array($result)) { ?>
                         <tr>
                             <td align="center">
-                              <?php echo '<a href="ver_imagem.php?id='.$row['ID'].'">Imagem '.$row["ID"].'</a>'; ?>
+                              <?php echo '<a href="ver_imagem.php?id='.$row['ID'].'">Imagem '.$row['ID'].'</a>'; ?>
                             </td>
                             <td><?php echo $row['NOME'] ?></td>
                             <td><?php echo $row['PRECO'] ?></td>
