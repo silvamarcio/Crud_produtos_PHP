@@ -6,16 +6,20 @@
         $name = $_POST['nome'];
         $price = $_POST['preco'];
         $description = $_POST['descricao'];
-        $image = $_FILES['imagem']['type'];
+        $image = $_FILES['imagem']['tmp_name'];
+        
+       
 
         $query = "INSERT INTO produtos(nome,preco,descricao,imagem) VALUES('$name','$price','$description','$image')" ;
 
         $result = mysqli_query($connection,$query);
+        
 
         if(!$result){
             die("insert falhou");
         }
 
+        move_uploaded_file($image, $imagePath);
         $_SESSION['message'] = 'Registro Guardado com Sucesso';
         $_SESSION['message_type'] = 'success';
 
