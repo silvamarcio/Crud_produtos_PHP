@@ -60,7 +60,8 @@
 
                      while($row = mysqli_fetch_array($result)) { ?>
                         <tr>
-                            <td align="center">
+                            <td>
+                            <!--<img src="ver_imagem.php?id=<?php echo $image->id ?>"/>;-->
                               <?php echo '<a href="ver_imagem.php?id='.$row['ID'].'">Imagem '.$row['ID'].'</a>'; ?>
                             </td>
                             <td><?php echo $row['NOME'] ?></td>

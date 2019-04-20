@@ -6,7 +6,7 @@
         $name = $_POST['nome'];
         $price = $_POST['preco'];
         $description = $_POST['descricao'];
-        $image = $_FILES['imagem']['tmp_name'];
+        $image = $_FILES['imagem']['type'];
 
         $query = "INSERT INTO produtos(nome,preco,descricao,imagem) VALUES('$name','$price','$description','$image')" ;
 
