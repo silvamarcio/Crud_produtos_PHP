@@ -60,17 +60,19 @@
 
                      while($row = mysqli_fetch_array($result)) { ?>
                         <tr>
-                            <td><?php echo $row['IMAGEM'] ?></td>
+                            <td align="center">
+                              <?php echo '<a href="ver_imagem.php?id='.$row['ID'].'">Imagem '.$row["ID"].'</a>'; ?>
+                            </td>
                             <td><?php echo $row['NOME'] ?></td>
                             <td><?php echo $row['PRECO'] ?></td>
                             <td><?php echo $row['DESCRICAO'] ?></td>
                             <td>
-                                <a href="edit.php?id=<?php echo $row['ID']?>">
-                                Edit
+                                <a href="edit.php?id=<?php echo $row['ID']?>" class="btn btn-secondary">
+                                    <i class=" fa fa-marker"></i>
                             </a>
 
-                            <a href="delete.php?id=<?php echo $row['ID']?>">
-                                Delete
+                            <a href="delete.php?id=<?php echo $row['ID']?>" class="btn btn-danger">
+                                <i class="far fa-trash-alt"></i>
                             </a>
                             </td>
                         </tr>
