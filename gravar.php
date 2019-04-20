@@ -6,8 +6,8 @@
         $name = $_POST['nome'];
         $price = $_POST['preco'];
         $description = $_POST['descricao'];
-        $image = $_FILES['imagem']['tmp_name'];
-        
+        $image = $_FILES['imagem']['name'];
+        $imagePath = "C:\xampp\htdocs\crud_produtos_php\images".$file_name;
        
 
         $query = "INSERT INTO produtos(nome,preco,descricao,imagem) VALUES('$name','$price','$description','$image')" ;

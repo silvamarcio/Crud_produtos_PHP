@@ -6,5 +6,5 @@
   $resultado = mysqli_query($connection,$querySelecionaPorCodigo);
   $imagem = mysqli_fetch_object($resultado);
   header( "Content-type: image/gif");
-  echo $imagem->IMAGEM;
+  echo $imagem->imagem;
   ?>
