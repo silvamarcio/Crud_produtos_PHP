@@ -7,10 +7,11 @@
         $price = $_POST['preco'];
         $description = $_POST['descricao'];
         $image = $_FILES['imagem']['name'];
-        $imagePath = "C:\xampp\htdocs\crud_produtos_php\images".$file_name;
+        $image_tmp = $_FILES['imagem']['tmp_name'];
+        $imagePath = "images/".$image;
        
 
-        $query = "INSERT INTO produtos(nome,preco,descricao,imagem) VALUES('$name','$price','$description','$image')" ;
+        $query = "INSERT INTO produtos(nome,preco,descricao,imagem) VALUES('$name','$price','$description','$imagePath')" ;
 
         $result = mysqli_query($connection,$query);
         
@@ -19,7 +20,7 @@
             die("insert falhou");
         }
 
-        move_uploaded_file($image, $imagePath);
+        move_uploaded_file($image_tmp, $imagePath);
         $_SESSION['message'] = 'Registro Guardado com Sucesso';
         $_SESSION['message_type'] = 'success';
 
