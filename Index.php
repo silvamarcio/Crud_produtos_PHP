@@ -6,7 +6,7 @@
 <!-- div para salvar-->
 <div class="container p-4">
     <div class="row">
-        <div class="col-md4">
+        <div class="col-md-4">
 
             <?php if(isset($_SESSION['message'])) {?>
             
@@ -25,7 +25,7 @@
                         <input type="text" name= "nome" class="form-control" placeholder="Nome do produto" autofocus>
                     </div>
                     <div class="form-group">
-                        <input type="number" name="preco" onchange="setTwoNumberDecimal" min="0" value="0.00" step="0.05" class="form-control" placeholder="preço" autofocus>
+                        <input type="number" name="preco" onchange="setTwoNumberDecimal" min="0" value="0.00" step="0.01" class="form-control" placeholder="preço" autofocus>
                     </div>
                     <div class="form-group">
                         <textarea name="descricao" rows="3" class="form-control" placeholder="Descrição"></textarea>
@@ -40,8 +40,45 @@
 
         </div>
 <!--fim da div para salvar -->
-        <div class="col-md8">
-                
+
+<!-- inicio da table de listar-->
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Descrição</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                     $query = "SELECT * FROM produtos";
+                     $result = mysqli_query($connection,$query);
+
+                     while($row = mysqli_fetch_array($result)) { ?>
+                        <tr>
+                            <td><?php echo $row['IMAGEM'] ?></td>
+                            <td><?php echo $row['NOME'] ?></td>
+                            <td><?php echo $row['PRECO'] ?></td>
+                            <td><?php echo $row['DESCRICAO'] ?></td>
+                            <td>
+                                <a href="edit.php?id=<?php echo $row['ID']?>">
+                                Edit
+                            </a>
+
+                            <a href="delete.php?id=<?php echo $row['ID']?>">
+                                Delete
+                            </a>
+                            </td>
+                        </tr>
+                     <?php } ?>    
+
+                </tbody>
+
+            </table>
 
         </div>
     </div>
